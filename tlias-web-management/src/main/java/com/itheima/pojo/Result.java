@@ -2,8 +2,6 @@ package com.itheima.pojo;
 
 import lombok.Data;
 
-import java.io.Serializable;
-
 /**
  * 后端统一返回结果
  */
@@ -13,6 +11,15 @@ public class Result {
     private Integer code; //编码：1成功，0为失败
     private String msg; //错误信息
     private Object data; //数据
+
+    public Result() {
+    }
+
+    public Result(Integer code, String msg, Object data) {
+        this.code = code;
+        this.msg = msg;
+        this.data = data;
+    }
 
     public static Result success() {
         Result result = new Result();
@@ -35,5 +42,4 @@ public class Result {
         result.code = 0;
         return result;
     }
-
 }

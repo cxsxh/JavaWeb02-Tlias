@@ -7,8 +7,8 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 public class Dept {
     private Integer id;
     private String name;
