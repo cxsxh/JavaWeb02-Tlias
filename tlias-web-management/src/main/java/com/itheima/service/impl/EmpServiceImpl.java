@@ -1,5 +1,7 @@
 package com.itheima.service.impl;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import com.itheima.mapper.EmpMapper;
 import com.itheima.pojo.Emp;
 import com.itheima.pojo.PageResult;
@@ -15,16 +17,36 @@ public class EmpServiceImpl implements EmpService {
     @Autowired
     private EmpMapper empMapper;
 
+    //-------------------- 原始分页查询实现 --------------------
+
+//    @Override
+//    public PageResult<Emp> page(Integer page, Integer pageSize) {
+//        // 调用mapper接口，查询总记录数
+//        Long total = empMapper.count();
+//
+//        // 调用mapper接口，查询结果列表
+//        Integer start = (page - 1) * pageSize;
+//        List<Emp> rows = empMapper.list(start, pageSize);
+//
+//        // 封装结果 PageResult
+//        return new PageResult<Emp>(total, rows);
+//    }
+
+    /*
+     * PageHelper 插件实现
+     */
     @Override
     public PageResult<Emp> page(Integer page, Integer pageSize) {
-        // 调用mapper接口，查询总记录数
-        Long total = empMapper.count();
+        //1.设置分页参数
+        PageHelper.startPage(page, pageSize);
 
-        // 调用mapper接口，查询结果列表
-        Integer start = (page - 1) * pageSize;
-        List<Emp> rows = empMapper.list(start, pageSize);
+        //2.执行查询
+        List<Emp> empList = empMapper.list();
 
-        // 封装结果 PageResult
-        return new PageResult<Emp>(total, rows);
+        //3.封装结果
+        Page<Emp> p = (Page<Emp>) empList;
+
+        return new PageResult<Emp>(p.getTotal(), p.getResult());
     }
+
 }
