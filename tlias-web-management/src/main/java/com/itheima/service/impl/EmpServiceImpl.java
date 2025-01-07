@@ -10,6 +10,7 @@ import com.itheima.service.EmpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -62,6 +63,16 @@ public class EmpServiceImpl implements EmpService {
         Page<Emp> p = (Page<Emp>) empList;
 
         return new PageResult<Emp>(p.getTotal(), p.getResult());
+    }
+
+    @Override
+    public void save(Emp emp) {
+        //1.保存员工基本信息
+        emp.setCreateTime(LocalDateTime.now());
+        emp.setUpdateTime(LocalDateTime.now());
+        empMapper.insert(emp);
+
+        //2.保存员工工作经历信息
     }
 
 }
