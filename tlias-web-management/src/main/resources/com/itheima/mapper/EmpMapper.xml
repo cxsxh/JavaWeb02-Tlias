@@ -3,8 +3,8 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.itheima.mapper.EmpMapper">
-
     <select id="list" resultType="com.itheima.pojo.Emp">
+
         select e.*, d.name deptName from emp e left join dept d on e.dept_id = d.id
         <where>
             <if test="name != null and name != ''">
@@ -19,4 +19,5 @@
         </where>
         order by e.update_time desc
     </select>
+
 </mapper>
