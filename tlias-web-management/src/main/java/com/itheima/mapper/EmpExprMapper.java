@@ -14,4 +14,9 @@ public interface EmpExprMapper {
      * 保存员工工作经历信息
      */
     void insertBatch(List<EmpExpr> exprList);
+
+    /*
+     * 根据员工id删除员工工作经历信息
+     */
+    void deleteByeEmpIds(List<Integer> empIds);
 }

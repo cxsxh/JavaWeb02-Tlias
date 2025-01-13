@@ -15,7 +15,7 @@ import java.util.List;
 @Mapper
 public interface EmpMapper {
 
-    //-------------------- 原始分页查询实现 --------------------
+    //-------------------- 分页查询实现 --------------------
 
     /*
      * 查询员工总数
@@ -36,7 +36,20 @@ public interface EmpMapper {
     List<Emp> list(EmpQueryParam empQueryParam);
 
     @Options(useGeneratedKeys = true, keyProperty = "id")
-    @Insert("insert into emp(username, name, gender, phone, job, salary, image, entry_date, dept_id, create_time, update_time)\n" +
+    @Insert("insert into emp(username, name, gender, phone, job, salary, image, entry_date, dept_id, create_time, update_time)" +
             "VALUES (#{username}, #{name}, #{gender}, #{phone}, #{job}, #{salary}, #{image}, #{entryDate}, #{deptId}, #{createTime}, #{updateTime})")
     void insert(Emp emp);
+
+
+    void deleteByIds(List<Integer> ids);
+
+    /*
+     * 根据ID查询员工信息
+     */
+    Emp getById(Integer id);
+
+    /*
+     * 根据ID修改员工信息
+     */
+    void updateById(Emp emp);
 }
