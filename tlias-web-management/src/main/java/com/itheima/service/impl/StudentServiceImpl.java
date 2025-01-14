@@ -27,6 +27,7 @@ public class StudentServiceImpl implements StudentService {
     public PageResult<Student> list(StudentQueryParam studentQueryParam) {
         PageHelper.startPage(studentQueryParam.getPage(), studentQueryParam.getPageSize());
 
+        //封装结果
         List<Student> list = studentMapper.list(studentQueryParam);
         Page<Student> p = (Page<Student>) list;
         return new PageResult<>(p.getTotal(), p.getResult());
