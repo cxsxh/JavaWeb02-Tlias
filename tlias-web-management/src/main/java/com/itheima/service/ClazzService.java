@@ -10,4 +10,6 @@ public interface ClazzService {
      *  查询所有班级信息
      */
     PageResult<Clazz> findAll(ClazzQueryParam clazzQueryParam);
+
+    void deleteById(Integer id);
 }
