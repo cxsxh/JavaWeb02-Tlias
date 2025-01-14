@@ -28,4 +28,12 @@ public class ReportServiceImpl implements ReportService {
         List<Object> dataList = list.stream().map(dataMap -> dataMap.get("num")).toList();
         return new JobOption(jobList, dataList);
     }
+
+    /*
+     * 统计员工性别人数
+     */
+    @Override
+    public List<Map<String, Object>> getEmpGenderData() {
+        return empMapper.countEmpGenderData();
+    }
 }
