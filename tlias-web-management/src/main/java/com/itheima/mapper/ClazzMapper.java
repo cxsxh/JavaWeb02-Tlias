@@ -8,7 +8,18 @@ import java.util.List;
 
 @Mapper
 public interface ClazzMapper {
-     List<Clazz> list(ClazzQueryParam clazzQueryParam);
+    /*
+     *  查询所有班级信息
+     */
+    List<Clazz> list(ClazzQueryParam clazzQueryParam);
 
+    /*
+     * 根据ID删除班级
+     */
     void deleteById(Integer id);
+
+    /*
+     * 新增班级
+     */
+    void insert(Clazz clazz);
 }

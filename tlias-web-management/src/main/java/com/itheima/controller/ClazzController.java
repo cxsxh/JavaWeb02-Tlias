@@ -7,10 +7,7 @@ import com.itheima.pojo.Result;
 import com.itheima.service.ClazzService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RequestMapping("/clazzs")
@@ -33,10 +30,20 @@ public class ClazzController {
     /*
      * 根据ID删除班级
      */
-    @DeleteMapping
-    public Result delete(Integer id) {
+    @DeleteMapping("/{id}")
+    public Result delete(@PathVariable Integer id) {
         log.info("根据ID删除班级: {}", id);
         clazzService.deleteById(id);
+        return Result.success();
+    }
+
+    /*
+     * 新增班级
+     */
+    @PostMapping
+    public Result add(Clazz clazz) {
+        log.info("新增班级: {}", clazz);
+        clazzService.add(clazz);
         return Result.success();
     }
 }

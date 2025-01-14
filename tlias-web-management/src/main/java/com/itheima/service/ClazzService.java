@@ -15,4 +15,9 @@ public interface ClazzService {
      * 根据ID删除班级
      */
     void deleteById(Integer id);
+
+    /*
+     * 新增班级
+     */
+    void add(Clazz clazz);
 }
