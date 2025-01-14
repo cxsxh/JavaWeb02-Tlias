@@ -11,5 +11,8 @@ public interface ClazzService {
      */
     PageResult<Clazz> findAll(ClazzQueryParam clazzQueryParam);
 
+    /*
+     * 根据ID删除班级
+     */
     void deleteById(Integer id);
 }

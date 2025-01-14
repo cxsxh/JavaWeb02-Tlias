@@ -34,8 +34,11 @@ public class ClazzServiceImpl implements ClazzService {
         return new PageResult<Clazz>(p.getTotal(), p.getResult());
     }
 
+    /*
+     * 根据ID删除班级
+     */
     @Override
     public void deleteById(Integer id) {
-
+        clazzMapper.deleteById(id);
     }
 }

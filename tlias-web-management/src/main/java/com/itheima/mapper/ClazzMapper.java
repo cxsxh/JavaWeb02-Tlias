@@ -9,4 +9,6 @@ import java.util.List;
 @Mapper
 public interface ClazzMapper {
      List<Clazz> list(ClazzQueryParam clazzQueryParam);
+
+    void deleteById(Integer id);
 }
