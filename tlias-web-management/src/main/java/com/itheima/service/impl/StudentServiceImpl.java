@@ -36,7 +36,7 @@ public class StudentServiceImpl implements StudentService {
      * 学员信息数据的删除
      */
     @Override
-    public void delete(Integer ids) {
+    public void delete(List<Integer> ids) {
         studentMapper.delete(ids);
     }
 

@@ -4,6 +4,8 @@ import com.itheima.pojo.PageResult;
 import com.itheima.pojo.Student;
 import com.itheima.pojo.StudentQueryParam;
 
+import java.util.List;
+
 public interface StudentService {
     /*
      * 学员列表数据的条件分页查询
@@ -13,7 +15,7 @@ public interface StudentService {
     /*
      * 学员信息数据的删除
      */
-    void delete(Integer ids);
+    void delete(List<Integer> ids);
 
     /*
      * 学员信息数据的新增

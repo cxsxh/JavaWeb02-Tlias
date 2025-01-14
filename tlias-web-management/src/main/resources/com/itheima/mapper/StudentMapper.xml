@@ -22,7 +22,10 @@
 
     <!--    学员信息数据的删除-->
     <delete id="delete">
-        delete from student where id = #{ids}
+        delete from student where id in
+        <foreach collection="ids" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
     </delete>
 
 <!--    学员列表数据的条件分页查询-->

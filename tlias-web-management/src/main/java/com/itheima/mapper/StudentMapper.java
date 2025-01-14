@@ -17,7 +17,7 @@ public interface StudentMapper {
     /*
      * 学员信息数据的删除
      */
-    void delete(Integer ids);
+    void delete(List<Integer> ids);
 
     /*
      * 学员信息数据的添加
