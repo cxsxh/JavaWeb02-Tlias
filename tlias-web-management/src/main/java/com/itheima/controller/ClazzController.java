@@ -41,7 +41,7 @@ public class ClazzController {
      * 新增班级
      */
     @PostMapping
-    public Result add(Clazz clazz) {
+    public Result add(@RequestBody Clazz clazz) {
         log.info("新增班级: {}", clazz);
         clazzService.add(clazz);
         return Result.success();
