@@ -23,6 +23,17 @@
 <!--    分页查询所有班级信息-->
     <select id="list" resultType="com.itheima.pojo.Clazz">
         select c.*, e.name masterName from clazz c left join emp e on c.master_id = e.id
+        <where>
+            <if test="name != null and name != ''">
+                c.name like concat('%', #{name}, '%')
+            </if>
+            <if test="gender != null">
+                and c.gender = #{gender}
+            </if>
+            <if test="begin != null and end != null">
+                and c.update_time between #{begin} and #{end}
+            </if>
+        </where>
     </select>
 
 <!--    根据ID查询班级-->
