@@ -4,6 +4,8 @@ import com.itheima.pojo.Clazz;
 import com.itheima.pojo.ClazzQueryParam;
 import com.itheima.pojo.PageResult;
 
+import java.util.List;
+
 public interface ClazzService {
 
     /*
@@ -25,4 +27,14 @@ public interface ClazzService {
      * 根据ID查询班级
      */
     Clazz getById(Integer id);
+
+    /*
+     * 修改班级
+     */
+    void update(Clazz clazz);
+
+    /*
+     * 查询所有班级
+     */
+    List<Clazz> listAll();
 }

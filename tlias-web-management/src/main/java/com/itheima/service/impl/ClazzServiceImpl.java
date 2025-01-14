@@ -71,4 +71,21 @@ public class ClazzServiceImpl implements ClazzService {
     public Clazz getById(Integer id) {
         return clazzMapper.getById(id);
     }
+
+    /*
+     * 修改班级
+     */
+    @Override
+    public void update(Clazz clazz) {
+        clazz.setUpdateTime(LocalDateTime.now());
+        clazzMapper.update(clazz);
+    }
+
+    /*
+     * 查询所有班级
+     */
+    @Override
+    public List<Clazz> listAll() {
+        return clazzMapper.listAll();
+    }
 }

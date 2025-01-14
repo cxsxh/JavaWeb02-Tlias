@@ -10,7 +10,12 @@
         values (#{name}, #{room}, #{beginDate}, #{endDate}, #{masterId}, #{subject}, #{createTime}, #{updateTime})
     </insert>
 
-<!--    根据ID删除班级-->
+<!--    修改班级-->
+    <update id="update">
+        update clazz set name = #{name}, room = #{room}, begin_date = #{beginDate}, end_date = #{endDate}, master_id = #{masterId}, subject = #{subject}, update_time = #{updateTime} where id = #{id}
+    </update>
+
+    <!--    根据ID删除班级-->
     <delete id="deleteById">
         delete from clazz where id = #{id}
     </delete>
@@ -23,6 +28,11 @@
 <!--    根据ID查询班级-->
     <select id="getById" resultType="com.itheima.pojo.Clazz">
         select id, name, room, begin_date, end_date, master_id, subject, create_time, update_time from clazz where id = #{id}
+    </select>
+
+<!--    查询所有班级-->
+    <select id="listAll" resultType="com.itheima.pojo.Clazz">
+        select id, name, room, begin_date, end_date, master_id, subject, create_time, update_time from clazz;
     </select>
 
 </mapper>
