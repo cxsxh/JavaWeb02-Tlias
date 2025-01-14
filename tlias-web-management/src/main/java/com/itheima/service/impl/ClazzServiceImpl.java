@@ -10,6 +10,7 @@ import com.itheima.service.ClazzService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -31,6 +32,16 @@ public class ClazzServiceImpl implements ClazzService {
         List<Clazz> clazzList = clazzMapper.list(clazzQueryParam);
 
         //封装结果
+        LocalDate now = LocalDate.now();
+        for (Clazz clazz : clazzList) {
+            if (now.isBefore(clazz.getBeginDate())) {
+                clazz.setStatus("未开班");
+            } else if (now.isAfter(clazz.getEndDate())){
+                clazz.setStatus("已结课");
+            } else {
+                clazz.setStatus("在读中");
+            }
+        }
         Page<Clazz> p = (Page<Clazz>) clazzList;
         return new PageResult<Clazz>(p.getTotal(), p.getResult());
     }
@@ -51,5 +62,13 @@ public class ClazzServiceImpl implements ClazzService {
         clazz.setCreateTime(LocalDateTime.now());
         clazz.setUpdateTime(LocalDateTime.now());
         clazzMapper.insert(clazz);
+    }
+
+    /*
+     * 根据ID查询班级
+     */
+    @Override
+    public Clazz getById(Integer id) {
+        return clazzMapper.getById(id);
     }
 }

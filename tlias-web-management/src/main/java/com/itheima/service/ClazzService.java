@@ -20,4 +20,9 @@ public interface ClazzService {
      * 新增班级
      */
     void add(Clazz clazz);
+
+    /*
+     * 根据ID查询班级
+     */
+    Clazz getById(Integer id);
 }

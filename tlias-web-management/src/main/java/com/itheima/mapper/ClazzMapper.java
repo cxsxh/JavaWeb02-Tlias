@@ -22,4 +22,9 @@ public interface ClazzMapper {
      * 新增班级
      */
     void insert(Clazz clazz);
+
+    /*
+     * 根据ID查询班级
+     */
+    Clazz getById(Integer id);
 }
