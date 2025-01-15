@@ -22,7 +22,11 @@ public class DeptServiceImpl implements DeptService {
 
     @Override
     public void deleteById(Integer id) {
-        deptMapper.deleteById(id);
+        if (deptMapper.findAll() != null) {
+            throw new RuntimeException("还有数据，不能删除");
+        } else {
+            deptMapper.deleteById(id);
+        }
     }
 
     @Override

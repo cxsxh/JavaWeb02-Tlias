@@ -25,4 +25,10 @@ public class GlobalExceptionHandler {
         String[] arr = errMsg.split(" ");
         return Result.error(arr[2] + "已存在");
     }
+
+    @ExceptionHandler
+    public Result handleRuntimeException(RuntimeException e) {
+        log.error("业务错误 ", e);
+        return Result.error("对不起，当前部门下有员工，不能直接删除！");
+    }
 }
