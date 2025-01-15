@@ -77,7 +77,7 @@ public class EmpController {
      * 根据ID查询员工信息
      */
     @GetMapping("/{id}")
-    private Result getInfo(@PathVariable Integer id) {
+    public Result getInfo(@PathVariable Integer id) {
         log.info("根据ID查询员工信息: {}", id);
         Emp emp = empService.getInfo(id);
         return Result.success(emp);
@@ -91,5 +91,15 @@ public class EmpController {
         log.info("修改员工信息: {}", emp);
         empService.update(emp);
         return Result.success();
+    }
+
+    /*
+     * 查询全部员工
+     */
+    @GetMapping("/list")
+    public Result list() {
+        log.info("查询全部员工");
+        List<Emp> empList = empService.list();
+        return Result.success(empList);
     }
 }
