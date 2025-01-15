@@ -36,4 +36,5 @@ public interface StudentService {
      * 学员学员违纪处理
      */
     void violation(Integer id ,Integer score);
+
 }
