@@ -37,5 +37,5 @@ public interface EmpService {
     /*
      * 查询全部员工
      */
-    List<Emp> list();
+    List<Emp> listAll();
 }

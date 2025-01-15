@@ -99,7 +99,7 @@ public class EmpController {
     @GetMapping("/list")
     public Result list() {
         log.info("查询全部员工");
-        List<Emp> empList = empService.list();
+        List<Emp> empList = empService.listAll();
         return Result.success(empList);
     }
 }

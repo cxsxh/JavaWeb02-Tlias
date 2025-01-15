@@ -132,8 +132,8 @@ public class EmpServiceImpl implements EmpService {
      * 查询全部员工
      */
     @Override
-    public List<Emp> list() {
-        return List.of();
+    public List<Emp> listAll() {
+        return empMapper.listAll();
     }
 
 }
