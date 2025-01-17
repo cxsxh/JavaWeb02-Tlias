@@ -25,10 +25,12 @@ public class LoginController {
     @PostMapping
     public Result login(@RequestBody Emp emp) {
         log.info("用户登录：{}", emp);
+
         LoginInfo info = empService.Login(emp);
         if (info != null) {
             return Result.success(info);
         }
+
         return Result.error("用户名或密码错误");
     }
 }
