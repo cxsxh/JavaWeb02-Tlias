@@ -2,7 +2,6 @@ package com.itheima.filter;
 
 import com.itheima.utils.JwtUtils;
 import jakarta.servlet.*;
-import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -10,7 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.io.IOException;
 
 @Slf4j
-@WebFilter(urlPatterns = "/*")
+//@WebFilter(urlPatterns = "/*")
 public class TokenFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
@@ -37,11 +36,11 @@ public class TokenFilter implements Filter {
             return;
         }
 
-        //教研token令牌
+        //校验token令牌
         try {
             //解析token
             JwtUtils.parseJWT(token);
-            
+
         } catch (Exception e) {
             log.info("令牌解析失败，请求被拦截");
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
