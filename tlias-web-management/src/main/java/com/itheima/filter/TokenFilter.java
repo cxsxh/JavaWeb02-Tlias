@@ -41,7 +41,7 @@ public class TokenFilter implements Filter {
         try {
             //解析token
             JwtUtils.parseJWT(token);
-
+            
         } catch (Exception e) {
             log.info("令牌解析失败，请求被拦截");
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
