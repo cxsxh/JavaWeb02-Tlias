@@ -67,6 +67,9 @@ public class OperateLogAspect {
             log.setReturnValue("Exception: " + throwable.getMessage());
         }
 
+        // 设置操作人姓名（这里假设有一个静态方法可以获取当前登录用户姓名）
+
+
         // 设置方法执行耗时
         long endTime = System.currentTimeMillis();
         log.setCostTime(endTime - startTime);
