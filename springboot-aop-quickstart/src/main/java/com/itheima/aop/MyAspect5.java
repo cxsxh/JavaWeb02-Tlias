@@ -14,6 +14,4 @@ public class MyAspect5 {
     public void before(){
         log.info("MyAspect4 -> before ...");
     }
-
-
 }
