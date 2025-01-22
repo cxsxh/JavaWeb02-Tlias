@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 //@Aspect
 public class MyAspect5 {
     //前置通知
-    @Before("execution(* com.itheima.service.impl.*.*(..))")
+    @Before("@annotation(com.itheima.anno.LogOperation)")
     public void before(){
         log.info("MyAspect4 -> before ...");
     }
