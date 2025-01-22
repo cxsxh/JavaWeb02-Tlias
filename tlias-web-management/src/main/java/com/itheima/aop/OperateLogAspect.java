@@ -2,6 +2,7 @@ package com.itheima.aop;
 
 import com.itheima.pojo.OperateLog;
 import com.itheima.mapper.OperateLogMapper;
+import com.itheima.utils.CurrentHolder;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -77,6 +78,6 @@ public class OperateLogAspect {
     // 假设有一个方法用于获取当前登录用户的ID
     private Integer getCurrentUserId() {
         // 实现此方法以返回当前操作人的ID
-        return 1; // 示例中直接返回1作为操作人ID
+        return CurrentHolder.getCurrentId(); // 示例中直接返回1作为操作人ID
     }
 }
