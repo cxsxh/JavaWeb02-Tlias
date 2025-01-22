@@ -80,4 +80,9 @@ public interface EmpMapper {
      */
     @Select("select id, username, name from emp where username = #{username} and password = #{password}")
     Emp selectByUsernameAndPassword(Emp emp);
+
+    /*
+     * 根据ID批量查询员工信息
+     */
+//    List<OperateLog> getByIdS(List<Integer> logList);
 }
