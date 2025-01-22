@@ -6,5 +6,7 @@ public class ThreadLocalTest {
     public static void main(String[] args) {
         threadLocal.set("hello");
         System.out.println(threadLocal.get());
+        threadLocal.set("1");
+        System.out.println(threadLocal.get());
     }
 }
