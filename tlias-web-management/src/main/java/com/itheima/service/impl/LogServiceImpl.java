@@ -33,7 +33,6 @@ public class LogServiceImpl implements LogService {
 
 //        List<Integer> idS = new ArrayList<>();
 //        logListT.forEach(log -> idS.add(log.getOperateEmpId()));
-//
 //        List<OperateLog> logList = empMapper.getByIdS(idS);
 
         Page<OperateLog> p = (Page<OperateLog>) logListT;
