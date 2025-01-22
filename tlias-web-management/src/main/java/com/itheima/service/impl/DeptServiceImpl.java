@@ -1,6 +1,7 @@
 package com.itheima.service.impl;
 
 import com.itheima.mapper.DeptMapper;
+import com.itheima.mapper.EmpMapper;
 import com.itheima.pojo.Dept;
 import com.itheima.service.DeptService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,8 @@ public class DeptServiceImpl implements DeptService {
 
     @Autowired
     private DeptMapper deptMapper;
+    @Autowired
+    private EmpMapper empMapper;
 
     @Override
     public List<Dept> findAll() {
@@ -22,7 +25,7 @@ public class DeptServiceImpl implements DeptService {
 
     @Override
     public void deleteById(Integer id) {
-        if (deptMapper.findAll() != null) {
+        if (empMapper.getByDeptId(id) != null) {
             throw new RuntimeException("还有数据，不能删除");
         } else {
             deptMapper.deleteById(id);

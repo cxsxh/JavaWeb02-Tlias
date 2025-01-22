@@ -1,5 +1,6 @@
 package com.itheima.controller;
 
+import com.itheima.anno.Log;
 import com.itheima.pojo.Dept;
 import com.itheima.pojo.Result;
 import com.itheima.service.DeptService;
@@ -45,6 +46,7 @@ public class DeptController {
 //    }
 
     //方式3 （要保证前端请求参数名与服务器端方法的参数名一致）
+    @Log
     @DeleteMapping
     public Result delete(Integer id) {
         deptService.deleteById(id);
@@ -54,6 +56,7 @@ public class DeptController {
     /**
      * 新增部门
      */
+    @Log
     @PostMapping
     public Result add(@RequestBody Dept dept) {
         deptService.add(dept);
@@ -72,6 +75,7 @@ public class DeptController {
     /**
      * 修改部门
      */
+    @Log
     @PutMapping
     public Result update(@RequestBody Dept dept) {
         deptService.update(dept);

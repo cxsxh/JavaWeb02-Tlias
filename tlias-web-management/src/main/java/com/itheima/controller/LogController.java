@@ -1,9 +1,6 @@
 package com.itheima.controller;
 
-import com.itheima.pojo.Log;
-import com.itheima.pojo.PageAndPageSize;
-import com.itheima.pojo.PageResult;
-import com.itheima.pojo.Result;
+import com.itheima.pojo.*;
 import com.itheima.service.LogService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +22,7 @@ public class LogController {
     @GetMapping("/page")
     public Result logPage(PageAndPageSize pageAndPageSize) {
         log.info("日志分页查询");
-        PageResult<Log> pageResult = logService.logPage(pageAndPageSize);
+        PageResult<OperateLog> pageResult = logService.logPage(pageAndPageSize);
         return Result.success(pageResult);
     }
 }

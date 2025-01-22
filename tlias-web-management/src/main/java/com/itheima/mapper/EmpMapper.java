@@ -70,6 +70,12 @@ public interface EmpMapper {
     List<Emp> listAll();
 
     /*
+     * 根据部门ID查询员工信息
+     */
+    @Select("select id, username, password, name, gender, phone, job, salary, image, entry_date, dept_id, create_time, update_time from emp where dept_id = #{deptId}")
+    Emp getByDeptId(Integer deptId);
+
+    /*
      * 根据用户名跟密码查询信息
      */
     @Select("select id, username, name from emp where username = #{username} and password = #{password}")
