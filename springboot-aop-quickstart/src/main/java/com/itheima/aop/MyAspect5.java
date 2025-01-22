@@ -1,7 +1,6 @@
 package com.itheima.aop;
 
 import lombok.extern.slf4j.Slf4j;
-import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
@@ -16,9 +15,5 @@ public class MyAspect5 {
         log.info("MyAspect4 -> before ...");
     }
 
-    //后置通知
-    @After("execution(* com.itheima.service.impl..*(..))")
-    public void after(){
-        log.info("MyAspect4 -> after ...");
-    }
+
 }
