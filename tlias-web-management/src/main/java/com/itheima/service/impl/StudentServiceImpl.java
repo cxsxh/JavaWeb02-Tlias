@@ -61,6 +61,9 @@ public class StudentServiceImpl implements StudentService {
         return studentMapper.getById(id);
     }
 
+    /*
+     * 学员信息数据的修改
+     */
     @Override
     public void update(Student student) {
         student.setUpdateTime(LocalDateTime.now());
