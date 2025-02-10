@@ -10,4 +10,5 @@ public class SpringbootWebConfigApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpringbootWebConfigApplication.class, args);
     }
+
 }
