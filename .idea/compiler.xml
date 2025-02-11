@@ -10,6 +10,7 @@
         <module name="tlias-web-management" />
         <module name="springboot-aop-quickstart" />
         <module name="springboot-web-config" />
+        <module name="itheima-utils" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="23" />
