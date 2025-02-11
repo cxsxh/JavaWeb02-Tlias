@@ -3,23 +3,23 @@ package com.aliyun.oss;
 import com.aliyun.oss.common.auth.CredentialsProviderFactory;
 import com.aliyun.oss.common.auth.EnvironmentVariableCredentialsProvider;
 import com.aliyun.oss.common.comm.SignVersion;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import java.io.ByteArrayInputStream;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
-@Component
 public class AliyunOSSOperator {
 
     /*private String endpoint = "https://oss-cn-beijing.aliyuncs.com";
     private String bucketName = "java-ai-bk";
     private String region = "cn-beijing";*/
 
-    @Autowired
-    private AliyunOSSProperties aliyunOSSProperties;
+    private final AliyunOSSProperties aliyunOSSProperties;
+
+    public AliyunOSSOperator(AliyunOSSProperties aliyunOSSProperties) {
+        this.aliyunOSSProperties = aliyunOSSProperties;
+    }
 
     public String upload(byte[] content, String originalFilename) throws Exception {
         String endpoint = aliyunOSSProperties.getEndpoint();
