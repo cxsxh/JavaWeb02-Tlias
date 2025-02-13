@@ -9,5 +9,4 @@ public class SpringbootAutoconfigurationTestApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpringbootAutoconfigurationTestApplication.class, args);
     }
-    
 }
